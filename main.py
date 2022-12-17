@@ -1,8 +1,11 @@
 from random import randint
 from typing import Optional, Union
 
+from graphic_arts.start_game_banner import run_screensaver
+
 
 def attack(char_name: str, char_class: Optional[str]) -> Union[str, None]:
+    """Нанесение урона."""
     damage: Optional[int] = None
 
     if char_class == 'warrior':
@@ -21,6 +24,7 @@ def attack(char_name: str, char_class: Optional[str]) -> Union[str, None]:
 
 
 def defence(char_name: str, char_class: Optional[str]) -> Union[str, None]:
+    """Применение защиты."""
     damage: Optional[int] = None
 
     if char_class == 'warrior':
@@ -39,6 +43,7 @@ def defence(char_name: str, char_class: Optional[str]) -> Union[str, None]:
 
 
 def special(char_name: str, char_class: Optional[str]) -> Union[str, None]:
+    """Применение спец умений."""
     if char_class == 'warrior':
         stamina: int = 80 + 25
         return (f'{char_name} применил специальное умение '
@@ -58,6 +63,7 @@ def special(char_name: str, char_class: Optional[str]) -> Union[str, None]:
 
 
 def start_training(char_name: str, char_class: Optional[str]) -> str:
+    """Функция для начала тренировки."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
 
@@ -94,6 +100,7 @@ def start_training(char_name: str, char_class: Optional[str]) -> str:
 
 
 def choice_char_class() -> Union[str, None]:
+    """Меня выбора класса."""
     approve_choice: Optional[str] = None
     char_class: Optional[str] = None
 
@@ -124,7 +131,9 @@ def choice_char_class() -> Union[str, None]:
     return char_class
 
 
-def main() -> None:
+if __name__ == '__main__':
+    run_screensaver()
+
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
 
@@ -139,6 +148,3 @@ def main() -> None:
     char_class: Optional[str] = choice_char_class()
 
     print(start_training(char_name, char_class))
-
-
-main()
